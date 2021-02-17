@@ -21,13 +21,15 @@ class DosesController < ApplicationController
     end
 
     def edit
+      @cocktail = Cocktail.find(params[:cocktail_id])
       @dose = Dose.find(params[:id])
     end
   
     def update
       @dose = Dose.find(params[:id])
+      @cocktail = Cocktail.find(params[:cocktail_id])
       if @dose.update(dose_params)
-        redirect_to dose_path(@dose), notice: 'Dose was updated'
+        redirect_to cocktail_path(@cocktail), notice: 'Dose was updated'
       else
         render :edit
       end

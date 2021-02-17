@@ -26,6 +26,7 @@
                   <i class="fa fa-trash destroy_dose"></i>
                 <% end %>
               </td>
+              <td><%= link_to "Edit", edit_cocktail_dose_path(@cocktail, dose) %></td>
             </tr>
           <% end %>
         </tbody>
@@ -34,23 +35,25 @@
     <%= link_to 'New', new_cocktail_dose_path(@cocktail) %>
   </div>
 
-  # <h3>Reviews</h3>
-  # <% if @cocktail.reviews.empty? %>
-  #   <p>Be the first to let a review</p>
-  # <% else %>
-  #   <ul class="list-group">
-  #     <% @cocktail.reviews.each do |review| %>
-  #       <li class="list-group-item d-flex justify-content-between align-items-center">
-  #         <span class="badge badge-primary badge-pill">
-  #           <% counter = 0 %>
-  #           <% 5.times do %>
-  #             <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-  #             <% counter += 1 %>
-  #           <% end %>
-  #         </span>
-  #         <%= review.content %>
-  #       </li>
-  #     <% end %>
-  #   </ul>
-  # <% end %>
+  <h3>Reviews</h3>
+  <td><%= link_to "Create a review", new_cocktail_review_path(@cocktail) %></td>
+  <% if @cocktail.reviews.empty? %>
+    <p>Be the first to let a review</p>
+  <% else %>
+    <ul class="list-group">
+      <% @cocktail.reviews.each do |review| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="badge badge-primary badge-pill">
+            <% counter = 0 %>
+            <% 5.times do %>
+              <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+              <% counter += 1 %>
+            <% end %>
+          </span>
+          <%= review.content %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
 </div>
