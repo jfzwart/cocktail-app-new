@@ -2,6 +2,7 @@
 
   <h1><%= @cocktail.name %></h1>
   <%= link_to "Back to all cocktails", root_path %>
+  <%= link_to "Edit", edit_cocktail_path(@cocktail) %>
   <%= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="fa fa-trash destroy_cocktail"></i>
   <% end %>
