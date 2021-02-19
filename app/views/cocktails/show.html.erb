@@ -3,9 +3,6 @@
   <h1><%= @cocktail.name %></h1>
   <%= link_to "Back to all cocktails", root_path %>
   <%= link_to "Edit", edit_cocktail_path(@cocktail) %>
-  <%= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } do %>
-    <i class="fa fa-trash destroy_cocktail"></i>
-  <% end %>
 
   <div class="row">
     <div class="col-sm-12 col-md-6">
@@ -22,9 +19,7 @@
               <td><%= dose.ingredient.name %></td>
               <td><%= dose.description %></td>
               <td>
-                <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="fa fa-trash destroy_dose"></i>
-                <% end %>
+                <%= link_to "delete", dose_path(dose), method: :delete, :confirm => "Are you sure?" %>
               </td>
               <td><%= link_to "Edit", edit_cocktail_dose_path(@cocktail, dose) %></td>
             </tr>
